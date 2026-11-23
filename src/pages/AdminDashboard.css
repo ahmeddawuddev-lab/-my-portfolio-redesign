@@ -1,0 +1,134 @@
+.admin-layout {
+  min-height: 100vh;
+  display: flex;
+  background: #11111b;
+  color: #ffffff;
+}
+
+.admin-sidebar {
+  width: 250px;
+  padding: 30px 20px;
+  background: #191927;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.admin-sidebar h2 {
+  font-size: 27px;
+}
+
+.admin-sidebar h2 span {
+  color: #a855f7;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-sidebar nav a {
+  color: #c5c5d2;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.admin-sidebar nav a:hover {
+  background: #29293d;
+  color: #ffffff;
+}
+
+.admin-sidebar button,
+.admin-card button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #9333ea, #06b6d4);
+  color: white;
+  cursor: pointer;
+}
+
+.admin-sidebar button {
+  margin-top: auto;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 35px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #303044;
+}
+
+.admin-header p,
+.admin-content > p,
+.admin-card p {
+  color: #aaaabd;
+}
+
+.admin-content {
+  padding-top: 35px;
+}
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.admin-card {
+  padding: 25px;
+  border: 1px solid #303044;
+  border-radius: 14px;
+  background: #191927;
+}
+
+.admin-card button {
+  margin-top: 15px;
+}
+
+@media (max-width: 700px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+
+  .admin-sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .admin-sidebar button {
+    margin-top: 0;
+  }
+
+  .admin-main {
+    padding: 20px;
+  }
+
+  .admin-cards {
+    grid-template-columns: 1fr;
+  }
+}
+.admin-action-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #9333ea, #06b6d4);
+  color: white;
+  text-decoration: none;
+}
