@@ -2,8 +2,9 @@ import "./ManageSkills.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { adminFetch } from "../utils/adminFetch";
+import { API_URL } from "../config";
 
-const API_URL = "http://localhost:5000/api/skills";
+const SKILLS_URL = `${API_URL}/api/skills`;
 
 function ManageSkills() {
   const [skills, setSkills] = useState([]);
@@ -17,7 +18,7 @@ function ManageSkills() {
 
   async function fetchSkills() {
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(SKILLS_URL);
       if (!response.ok) throw new Error("Failed to load skills");
 
       const data = await response.json();
@@ -35,8 +36,7 @@ function ManageSkills() {
     e.preventDefault();
     setError("");
     setMessage("");
-
-    const url = editingId ? `${API_URL}/${editingId}` : API_URL;
+    const url = editingId ? `${SKILLS_URL}/${editingId}` : SKILLS_URL;
 
     try {
       const response = await adminFetch(url, {
@@ -83,7 +83,7 @@ function ManageSkills() {
     }
 
     try {
-      const response = await adminFetch(`${API_URL}/${id}`, {
+      const response = await adminFetch(`${SKILLS_URL}/${id}`, {
         method: "DELETE",
       });
 

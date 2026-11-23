@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "./config";
 import "./App.css";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const response = await fetch("http://localhost:5000/api/projects");
+        const response = await fetch(`${API_URL}/api/projects`);
 
         if (!response.ok) {
           throw new Error("Failed to fetch projects");
@@ -23,7 +24,7 @@ function App() {
 
     async function fetchSkills() {
       try {
-        const response = await fetch("http://localhost:5000/api/skills");
+        const response = await fetch(`${API_URL}/api/skills`);
 
         if (!response.ok) {
           throw new Error("Failed to fetch skills");
@@ -241,7 +242,7 @@ function App() {
                             "Netflixclone screenshoot.png",
                           ].includes(project.image)
                         ? `/images/${encodeURIComponent(project.image)}`
-                        : `http://localhost:5000/uploads/${encodeURIComponent(
+                        : `${API_URL}/uploads/${encodeURIComponent(
                             project.image || "",
                           )}`
                   }

@@ -2,8 +2,9 @@ import { adminFetch } from "../utils/adminFetch";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ManageProjects.css";
+import { API_URL } from "../config";
 
-const API_URL = "http://localhost:5000/api/projects";
+const PROJECTS_URL = `${API_URL}/api/projects`;
 
 function ManageProjects() {
   const [projects, setProjects] = useState([]);
@@ -21,7 +22,7 @@ function ManageProjects() {
 
   async function fetchProjects() {
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(PROJECTS_URL);
 
       if (!response.ok) {
         throw new Error("Failed to load projects");
@@ -55,8 +56,7 @@ function ManageProjects() {
     if (image) {
       formData.append("image", image);
     }
-
-    const url = editingId ? `${API_URL}/${editingId}` : API_URL;
+    const url = editingId ? `${PROJECTS_URL}/${editingId}` : PROJECTS_URL;
 
     try {
       const response = await adminFetch(url, {
@@ -109,7 +109,7 @@ function ManageProjects() {
     }
 
     try {
-      const response = await adminFetch(`${API_URL}/${id}`, {
+      const response = await adminFetch(`${PROJECTS_URL}/${id}`, {
         method: "DELETE",
       });
 
